@@ -1,0 +1,41 @@
+<p>roles works!</p>
+<div class="row">
+  <div class="col-3">
+    <p>{{ firstName }}</p>
+  </div>
+    <div class="col-3">
+      <p>{{ version }}</p>
+    </div>
+      <div class="col-3">
+        <p>{{currentDate}}</p>
+      </div>
+      <div class="col-3">
+        <p>{{province}}</p>
+      </div>
+    </div>
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [value]="firstName" class="form-control">
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="firstName" class="form-control">
+    </div>
+    <div class="col-3">
+        <input [type]="inputType">
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="province" >
+            <option value="SINDH">SI</option>
+            <option value="PUNJAB">PY</option>
+            <option value="KPK">KPK</option>
+            <option value="BA">BA</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showWelcomeAlert()">click me!</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showMsg('ahmed')">click me!</button>
+    </div>
+</div>    

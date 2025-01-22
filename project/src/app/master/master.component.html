@@ -1,0 +1,13 @@
+<div class="btn-grps text-center col-12 ">
+<button class="btn" type="submit" (click)="changeTab('Roles')" [ngClass]="currentComponent == 'Roles' ? 'btn-success': 'btn-primary'">Roles</button>
+<button class="btn " type="submit" (click)="changeTab('Designation')" [ngClass]="currentComponent == 'Designation' ? 'btn-success': 'btn-primary'">Designation</button>
+</div>
+
+<div class="row">
+    <div class="col-12" *ngIf ="currentComponent == 'Roles'">
+        <app-roles></app-roles>
+    </div>
+    <div class="col-12" *ngIf ="currentComponent == 'Designation'">
+      <app-designation></app-designation>
+    </div>
+</div>
