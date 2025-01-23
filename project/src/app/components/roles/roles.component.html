@@ -1,4 +1,4 @@
-<p>roles works!</p>
+<!-- <p>roles works!</p>
 <div class="row">
   <div class="col-3">
     <p>{{ firstName }}</p>
@@ -38,4 +38,41 @@
     <div class="col-3">
         <button class="btn btn-success" (click)="showMsg('ahmed')">click me!</button>
     </div>
-</div>    
+</div>     -->
+
+
+<!-- <div class="row">
+  <div class="col-4">
+    <ul>
+      <li *ngFor = "let item of roleList"> {{item.role}} </li>
+    </ul>
+  </div>
+  <div class="col-4">
+    <select name="" id="">
+      <option *ngFor="let role of roleList" [value]="role.roleId"> {{role.role}} </option>
+    </select>
+  </div>
+  <div class="col-4">
+    <button class="btn btn-warning mx-2 my-1" *ngFor="let item of roleList"> {{item.role}} </button>
+  </div>
+</div> -->
+
+
+<div class="row">
+  <div class="col-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Role Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = 'let item of roleList; let srno = index'>
+          <td> {{srno+1}} </td>
+          <td> {{item.role}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

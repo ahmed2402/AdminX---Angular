@@ -1,1 +1,12 @@
-<p>designation works!</p>
+<div class="row">
+    <div class="col-3">
+        @for (item of designationList; track $index) { <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{item.designation}}</h5>
+              <a href="#" class="card-link">Edit</a>
+              <a href="#" class="card-link">Delete</a>
+            </div>
+          </div>
+        }
+    </div>
+</div>

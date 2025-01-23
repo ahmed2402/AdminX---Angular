@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RolesComponent } from '../components/roles/roles.component';
-import { DesignationComponent } from '../components/designation/designation.component';
+import { RolesComponent } from '../roles/roles.component';
+import { DesignationComponent } from '../designation/designation.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
