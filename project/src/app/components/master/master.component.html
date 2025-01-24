@@ -3,7 +3,7 @@
 <button class="btn " type="submit" (click)="changeTab('Designation')" [ngClass]="currentComponent == 'Designation' ? 'btn-success': 'btn-primary'">Designation</button>
 </div>
 
-<div class="row">
+<div class="row pt-2">
     <div class="col-12" *ngIf ="currentComponent == 'Roles'">
         <app-roles></app-roles>
     </div>

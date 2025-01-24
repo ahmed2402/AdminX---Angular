@@ -28,6 +28,7 @@ export class RolesComponent implements OnInit{
     //   alert(message)
     // }
 
+ isLoader2: boolean = true ;   
  roleList: IRole [] = [];   
  http = inject(HttpClient);
     
@@ -39,6 +40,7 @@ export class RolesComponent implements OnInit{
  getAllRoles() {
   this.http.get<APIResponseModel>("https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles").subscribe((res:APIResponseModel)=> {
     this.roleList = res.data ;
+    this.isLoader2 = false ;
   })
  }
 

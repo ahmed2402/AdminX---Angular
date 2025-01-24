@@ -56,9 +56,15 @@
     <button class="btn btn-warning mx-2 my-1" *ngFor="let item of roleList"> {{item.role}} </button>
   </div>
 </div> -->
-
-
 <div class="row">
+@if (isLoader2 == true) {
+  <div class="col-12 text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    </div>
+  } @else {
+  <div class="row">
   <div class="col-12">
     <table class="table table-bordered">
       <thead>
@@ -75,4 +81,6 @@
       </tbody>
     </table>
   </div>
+</div>
+}
 </div>
