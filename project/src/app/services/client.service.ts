@@ -15,11 +15,28 @@ export class ClientService {
     getAllClient():Observable<APIResponseModel> {
         return this.http.get <APIResponseModel>(environment.API_URL+"GetAllClients")
     }
+
+    getAllEmployee():Observable<APIResponseModel> {
+      return this.http.get<APIResponseModel>(environment.API_URL+"GetAllEmployee")
+    }
+
+    getAllClientProjects():Observable<APIResponseModel> {
+      return this.http.get <APIResponseModel>(environment.API_URL+"GetAllClientProjects")
+    }   
+
     addUpdate(obj:Client):Observable<APIResponseModel> {
       return this.http.post<APIResponseModel>(environment.API_URL+"AddUpdateClient",obj)
-  }
+    }
   deletClientById(id:number):Observable<APIResponseModel> {
     return this.http.delete<APIResponseModel>(environment.API_URL+"DeleteClientByClientId?clientId="+id)
 }
+deleteProjectById(id:number):Observable<APIResponseModel> {
+  return this.http.delete<APIResponseModel>(environment.API_URL+"DeleteProjectByProjectId"+id)
+}
+addClientProjectUpdate(obj:Client):Observable<APIResponseModel> {
+  return this.http.post<APIResponseModel>(environment.API_URL+"AddUpdateClientProject",obj)
+}
+
+
    }
 
