@@ -1,8 +1,14 @@
+<!-- <p>{{clientObj | json}}</p> -->
+<ul>
+    @for (item of userList$ | async; track $index) {
+        <li>{{$index+1}} - {{item.name}}</li>
+    }
+</ul>
 <div class="row">
     <div class="col-8">
         <div class="card">
             <div class="card-header bg-success">
-                Client List
+                Client List - {{currentDate | date}}
             </div>
             <div class="card-body">
                 <table class="table table-bordered">
@@ -20,7 +26,7 @@
                         @for (item of clientList; track $index) {
                             <tr>
                             <td>{{$index+1}}</td>
-                            <td>{{item.companyName}}</td>
+                            <td>{{item.companyName | uppercase}}</td>
                             <td>{{item.contactPersonName}}</td>
                             <td>{{item.contactNo}}</td>
                             <td>{{item.city}}</td>

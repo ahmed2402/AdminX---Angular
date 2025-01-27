@@ -74,6 +74,7 @@ ngOnInit(): void {
 
      onDelete(id:number) {
       const isDelete = confirm("Are you sure you want to Delete?")
+      console.log(id);
       if (isDelete) {
         this.clientSrv.deleteProjectById(id).subscribe((res:APIResponseModel) => {
         if(res.result){
