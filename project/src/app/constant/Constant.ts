@@ -4,6 +4,6 @@ export const  Constant = {
         GET_ALL_CLIENT : 'GetAllClients',
     },
     VALIDATION_MESSAGE : {
-        REQUIRED : 'This field is required',
+        REQUIRED : 'This field is required'!,
     }
 }
