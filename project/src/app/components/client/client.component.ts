@@ -5,10 +5,12 @@ import { ClientService } from '../../services/client.service';
 import { APIResponseModel } from '../../model/interface/role';
 import { AsyncPipe, DatePipe, JsonPipe, UpperCasePipe } from '@angular/common';
 import { Observable } from 'rxjs';
+import { AlertComponent } from "../../reuseableComponents/alert/alert.component";
+import { MyButtonComponent } from "../../reuseableComponents/my-button/my-button.component";
 
 @Component({
   selector: 'app-client',
-  imports: [FormsModule,UpperCasePipe,DatePipe,JsonPipe,AsyncPipe],
+  imports: [FormsModule, UpperCasePipe, DatePipe, AlertComponent, MyButtonComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -19,6 +21,7 @@ export class ClientComponent implements OnInit {
   clientObj : Client = new Client() ;
   clientList : Client[] = [];
   clientService = inject(ClientService) ;
+  isLoader2: boolean = true ;   
 
 
 
@@ -30,12 +33,13 @@ export class ClientComponent implements OnInit {
   loadClient() {
     this.clientService.getAllClient().subscribe((res:APIResponseModel) => {
       this.clientList = res.data ;
+      this.isLoader2 = false ;
     })
   }
 
  userList$ : Observable<any> = new Observable<any>;
 
-  onSaveClient() {
+  onSaveClient(data:string) {
     debugger ;
     this.clientService.addUpdate(this.clientObj).subscribe((res:APIResponseModel) => {
       if(res.result){

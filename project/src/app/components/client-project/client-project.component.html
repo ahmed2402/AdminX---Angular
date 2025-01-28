@@ -1,8 +1,18 @@
+@if (isLoader2 == true) {
+    <div class="col-12 text-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      </div>
+    } @else {
+<app-alert [alertType]="'Success'" [message]="'Hi from Client Project Page'"></app-alert>
+
 <div class="row">
     <div class="col-8">
         <div class="card">
             <div class="card-header bg-success">
-                Project List
+                Project List - {{firstName()}}
+                <!-- <button class="btn btn-danger" (click)="changeFName()">Change F Name</button> -->
             </div>
             <div class="card-body">
                 <table class="table table-bordered">
@@ -11,7 +21,6 @@
                         <th>Sr.No</th>
                         <th>Project Name</th>
                         <th>Lead By</th>
-                        <th>Contact Name</th>
                         <th>Client</th>
                         <th>Start Date</th>
                         <th>Expected End Date</th>
@@ -19,7 +28,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @for (item of projectList; track $index) {
+                        <!-- @for (item of projectList; track $index) {
                             <tr>
                             <td>{{$index+1}}</td>
                             <td>{{item.projectName}}</td>
@@ -33,7 +42,23 @@
                                 <button class="btn btn-danger mx-2" (click)="onDelete(item.clientProjectId)">Delete</button> 
                             </td>
                         </tr>
-                        }
+                        } -->
+                         @for (item of projectList(); track $index) {
+                            <tr>
+                            <td>{{$index+1}}</td>
+                            <td>{{item.projectName}}</td>
+                            <td>{{item.empName}}</td>
+                            <td>{{item.clientName}}</td>
+                            <td>{{item.startDate | date}}</td>
+                            <td>{{item.expectedEndDate | date}}</td>
+                             <td> 
+                                  <button class="btn btn-primary mx-2 my-2 " >Edit</button> 
+                                <button class="btn btn-danger mx-2" >Delete</button> 
+                                <!-- <button class="btn btn-primary mx-2 my-2 " (click)="onEdit(item)">Edit</button> 
+                                <button class="btn btn-danger mx-2" (click)="onDelete(item.clientProjectId)">Delete</button> -->
+                            </td>
+                         </tr> 
+                        } 
                     </tbody>
                   </table>
             </div>
@@ -128,3 +153,4 @@
             </div>
         </div>
     </div>
+}

@@ -1,9 +1,17 @@
 <!-- <p>{{clientObj | json}}</p> -->
-<ul>
+<!-- <ul>
     @for (item of userList$ | async; track $index) {
         <li>{{$index+1}} - {{item.name}}</li>
     }
-</ul>
+</ul> -->
+@if (isLoader2 == true) {
+    <div class="col-12 text-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      </div>
+    } @else {
+<app-alert [alertType]="'Success'" [message]="'Hi from client page'"></app-alert>
 <div class="row">
     <div class="col-8">
         <div class="card">
@@ -106,9 +114,12 @@
                         <button class="btn btn-secondary" (click)="onReset()">Reset</button>
                     </div>
                     <div class="col-6 text-center">
-                        <button class="btn btn-success" [disabled]="!form.valid" (click)="onSaveClient()">
+                        <app-my-button (onBtnClick)="onSaveClient($event)" [btnClass]="'btn btn-success'" [btnText]="clientObj.clientId != 0? 'Update Client':'Save Client'"></app-my-button>
+
+
+                        <!-- <button class="btn btn-success" [disabled]="!form.valid" (click)="onSaveClient()">
                             {{clientObj.clientId != 0? 'Update Client':'Save Client'}}
-                    </button>
+                    </button> -->
                     </div>
                 </div>
             </div>
@@ -117,3 +128,4 @@
         </div>
     </div>
 </div>
+    }
