@@ -39,7 +39,13 @@ export class ClientService {
     }
   deletClientById(id:number):Observable<APIResponseModel> {
     return this.http.delete<APIResponseModel>(environment.API_URL+"DeleteClientByClientId?clientId="+id)
-}
+  }
+  
+  // DeleteEmployeeByEmpId?empId=11'
+  deleteEmployeeById(id:number):Observable<APIResponseModel> {
+    return this.http.delete<APIResponseModel>(environment.API_URL+"DeleteEmployeeByEmpId?empId="+id)
+  }
+
 deleteProjectById(id:number):Observable<APIResponseModel> {
   // return this.http.delete<APIResponseModel>(environment.API_URL+"DeleteProjectByProjectId"+id)
   return this.http.delete<APIResponseModel>(environment.API_URL+"DeleteProjectByProjectId?projectId="+id)

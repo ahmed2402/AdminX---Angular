@@ -1,10 +1,11 @@
 @if (isLoader2 == true) {
-    <div class="col-12 text-center">
+    <div style="display: flex; justify-content: center; align-items: center; height: 50vh; width: 100%;">
       <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
-      </div>
-    } @else {
+    </div>
+}
+ @else {
 <app-alert [alertType]="'Success'" [message]="'Hi from Client Project Page'"></app-alert>
 
 <div class="row">
@@ -15,8 +16,8 @@
                 <!-- <button class="btn btn-danger" (click)="changeFName()">Change F Name</button> -->
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
-                    <thead>
+                <table style="text-align: center;" class="table table-bordered table-dark table-hover ">
+                    <thead >
                       <tr>
                         <th>Sr.No</th>
                         <th>Project Name</th>
@@ -27,7 +28,7 @@
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         <!-- @for (item of projectList; track $index) {
                             <tr>
                             <td>{{$index+1}}</td>
@@ -44,18 +45,16 @@
                         </tr>
                         } -->
                          @for (item of projectList(); track $index) {
-                            <tr>
+                            <tr >
                             <td>{{$index+1}}</td>
                             <td>{{item.projectName}}</td>
                             <td>{{item.empName}}</td>
                             <td>{{item.clientName}}</td>
                             <td>{{item.startDate | date}}</td>
                             <td>{{item.expectedEndDate | date}}</td>
-                             <td> 
-                                  <button class="btn btn-primary mx-2 my-2 " >Edit</button> 
-                                <button class="btn btn-danger mx-2" >Delete</button> 
-                                <!-- <button class="btn btn-primary mx-2 my-2 " (click)="onEdit(item)">Edit</button> 
-                                <button class="btn btn-danger mx-2" (click)="onDelete(item.clientProjectId)">Delete</button> -->
+                             <td style="display: flex;" class="">  
+                                <button class="btn btn-primary mx-2 my-2 " (click)="onEdit(item)">Edit</button>
+                                <button class="btn btn-danger mx-2 my-2" (click)="onDelete(item.clientProjectId)">Delete</button> 
                             </td>
                          </tr> 
                         } 

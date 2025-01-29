@@ -1,22 +1,21 @@
-<div class="row">
-@if (isLoader == true) {
+<div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;" class="row">
+  @if (isLoader == true) {
     <div class="col-12 text-center">
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
-} @else {
-  <div class="col-3">
-    @for (item of designationList; track $index) {
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">{{ item.designation }}</h5>
-        <a href="#" class="card-link">Edit</a>
-        <a href="#" class="card-link">Delete</a>
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    }
-  </div>
-}
-  
+  } @else {
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      @for (item of designationList; track $index) {
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.designation }}</h5>
+            <a href="#" class="card-link">Edit</a>
+            <a href="#" class="card-link">Delete</a>
+          </div>
+        </div>
+      }
+    </div>
+  }
 </div>

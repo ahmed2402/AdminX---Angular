@@ -1,1 +1,48 @@
-<p>employee works!</p>
+<div  class="row">
+  @if (isLoader2 == true) {
+    <div style="display: flex; justify-content: center; align-items: center; height: 50vh; width: 100%;">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+} @else {
+        <div class="col-12">
+            <div class="card">
+                <div style="font-size: larger; font-weight: 500;" class="card-header bg-success">
+                    Employee List
+                </div>
+                <div class="card-body">
+                    <table style="text-align: center;" class="table table-bordered table-dark table-hover ">
+                        <thead >
+                          <tr>
+                            <th>Sr.No</th>
+                            <th>Employee Name</th>
+                            <th>Emp ID</th>
+                            <th>Role</th>
+                            <th>Designation</th>
+                            <th>Email Id</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                            @for (item of employeeList; track $index) {
+                                <tr>
+                                <td>{{$index+1}}</td>
+                                <td>{{item.empName}}</td>
+                                <td>{{item.empId}}</td>
+                                <td>{{item.role}}</td>
+                                <td>{{item.empDesignation}}</td>
+                                <td>{{item.empEmailId}}</td>
+                                <td style="display: flex; align-items: center; justify-content: center;">
+                                     <button class="btn btn-primary mx-2 my-2 " >Edit</button> 
+                                     <button class="btn btn-danger mx-2 my-2" (click)="onDelete(item.empId)">Delete</button> 
+                                </td>
+                            </tr> 
+                            }
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    }
+    </div>

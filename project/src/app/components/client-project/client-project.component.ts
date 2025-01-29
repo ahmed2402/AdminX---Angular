@@ -81,6 +81,7 @@ ngOnInit(): void {
       this.clientSrv.addClientProjectUpdate(formValue).subscribe((res:APIResponseModel) => {
         if(res.result) {
           alert("Project Created Successfully") ;
+          this.getAllClientProject();
         } else {
           alert(res.message) ;
         }
@@ -92,24 +93,24 @@ ngOnInit(): void {
      }
     
 
-    // //  onDelete(id:number) {
-    // //   const isDelete = confirm("Are you sure you want to Delete?")
-    // //   console.log(id);
-    // //   if (isDelete) {
-    // //     this.clientSrv.deleteProjectById(id).subscribe((res:APIResponseModel) => {
-    // //     if(res.result){
-    // //       alert("Client deleted Successfully")
-    // //       this.getAllClientProject() ;
-    // //     } else {
-    // //       alert(res.message)
-    // //     }
-    // //  })
-    // //   }
-    // }
+     onDelete(id:number) {
+     const isDelete = confirm("Are you sure you want to Delete?")
+     console.log(id);
+     if (isDelete) {
+       this.clientSrv.deleteProjectById(id).subscribe((res:APIResponseModel) => {
+       if(res.result){
+        //  alert("Client deleted Successfully")
+         this.getAllClientProject() ;
+       } else {
+          alert(res.message)
+        }
+     })
+      }
+    }
 
-    // onEdit(data:Project) {
-    //   this.projectForm.patchValue(data);
-    //  }
+    onEdit(data:Project) {
+      this.projectForm.patchValue(data);
+     }
 
      changeFName() {
       this.firstName.set("ReactJS");
