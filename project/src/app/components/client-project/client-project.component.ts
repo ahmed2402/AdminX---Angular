@@ -69,6 +69,11 @@ ngOnInit(): void {
 
   getAllClientProject () {
       this.clientSrv.getAllClientProjects().subscribe((res:APIResponseModel) => {
+        res.data.map((item: any) => {
+          let employee = this.employeeList.find((x) => x.empId == item.empId)
+          item.employeeEmail = employee?.empEmailId;
+          item.contactName = employee?.empName;
+        })
         this.projectList.set(res.data);
         this.isLoader2 = false ;
       })
@@ -78,6 +83,8 @@ ngOnInit(): void {
     onSaveProject() {
       const formValue = this.projectForm.value;
       debugger ;
+      // let project_identifier = formValue.projectForm + 001;
+      // localStorage.setItem("project");
       this.clientSrv.addClientProjectUpdate(formValue).subscribe((res:APIResponseModel) => {
         if(res.result) {
           alert("Project Created Successfully") ;
